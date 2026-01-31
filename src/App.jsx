@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import serverFull from './images/server-full.jpg';
+import drives from './images/drives.jpg';
+import motherboardAngle from './images/motherboard-angle.jpg';
+import internals from './images/internals.jpg';
 
 function App() {
   // const [activeImage, setActiveImage] = useState(0);
 
   const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
-
-  const mainImage = { src: '/src/images/server-full.jpg', label: 'Full Build' };
-
+  const mainImage = { src: serverFull, label: 'Full Build' };
   const galleryImages = [
-    { src: '/src/images/drives.jpg', label: 'Storage Array' },
-    { src: '/src/images/motherboard-angle.jpg', label: 'Motherboard' },
-    { src: '/src/images/internals.jpg', label: 'Internal Layout' }
+    { src: drives, label: 'Storage Array' },
+    { src: motherboardAngle, label: 'Build close-up' },
+    { src: internals, label: 'Internal Layout' }
   ];
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentGalleryIndex((prev) => (prev + 1) % galleryImages.length);
